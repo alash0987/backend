@@ -1,4 +1,5 @@
 const validateRegister = (req, res, next) => {
+  console.log(req.body);
   const { username, email, password } = req.body;
   const errors = [];
 

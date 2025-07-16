@@ -7,6 +7,7 @@ require("dotenv").config();
 // Import routes
 const authRoutes = require("./src/routes/auth");
 const userRoutes = require("./src/routes/users");
+const errorHandler = require("./src/middleware/errorHandler");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -55,6 +56,7 @@ app.use((err, req, res, next) => {
         : "Internal server error",
   });
 });
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
